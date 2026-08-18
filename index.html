@@ -85,13 +85,36 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <!-- Logo -->
-                <a href="#" class="flex items-center space-x-3 group">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-transform">
-                        <span class="font-black text-xl text-white tracking-tighter">曜</span>
-                    </div>
+                <a href="#" class="flex items-center space-x-3 group shrink-0">
+                    <!-- Brand Vector Logo SVG -->
+                    <svg class="w-10 h-10 sm:w-11 sm:h-11 group-hover:scale-105 transition-transform duration-300" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#FBBF24" />
+                                <stop offset="60%" stop-color="#F59E0B" />
+                                <stop offset="100%" stop-color="#D97706" />
+                            </linearGradient>
+                            <linearGradient id="logoNavy" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#60A5FA" />
+                                <stop offset="40%" stop-color="#2563EB" />
+                                <stop offset="100%" stop-color="#1E3A8A" />
+                            </linearGradient>
+                            <radialGradient id="logoStar" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#FFFBEB" />
+                                <stop offset="35%" stop-color="#FCD34D" />
+                                <stop offset="100%" stop-color="#F59E0B" />
+                            </radialGradient>
+                        </defs>
+                        <!-- Top-Left Golden Arc -->
+                        <path d="M 82 22 C 52 0 16 22 16 54 C 16 70 26 82 38 86 C 27 76 22 62 25 48 C 29 30 44 18 64 16 C 72 15 78 17 82 22 Z" fill="url(#logoGold)" />
+                        <!-- Bottom-Right Navy Arc -->
+                        <path d="M 18 78 C 48 100 84 78 84 46 C 84 30 74 18 62 14 C 73 24 78 38 75 52 C 71 70 56 82 36 84 C 28 85 22 83 18 78 Z" fill="url(#logoNavy)" />
+                        <!-- Center Sparkle Star -->
+                        <path d="M 50 28 C 50 42 42 50 28 50 C 42 50 50 58 50 72 C 50 58 58 50 72 50 C 58 50 50 42 50 28 Z" fill="url(#logoStar)" />
+                    </svg>
                     <div>
-                        <span class="font-bold text-lg sm:text-xl tracking-tight text-white block leading-tight">曜昕企管</span>
-                        <span class="text-[10px] text-slate-400 tracking-wider uppercase block">Yao Xin Management Consulting</span>
+                        <span class="font-bold text-base sm:text-lg tracking-tight text-white block leading-tight">曜昕企業管理顧問</span>
+                        <span class="text-[9px] sm:text-[10px] text-slate-400 tracking-wider uppercase block font-medium">YAO HSIN BUSINESS MANAGEMENT CONSULTING</span>
                     </div>
                 </a>
 
@@ -1022,10 +1045,20 @@
 
     <!-- Footer -->
     <footer class="py-12 bg-slate-950 border-t border-slate-900 text-slate-500 text-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="flex items-center space-x-3">
-                <span class="font-bold text-slate-300">曜昕企業管理顧問有限公司</span>
-                <span>© 2026 Yao Xin Management Consulting Co., Ltd. All Rights Reserved.</span>
+                <svg class="w-8 h-8 shrink-0" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 82 22 C 52 0 16 22 16 54 C 16 70 26 82 38 86 C 27 76 22 62 25 48 C 29 30 44 18 64 16 C 72 15 78 17 82 22 Z" fill="url(#logoGold)" />
+                    <path d="M 18 78 C 48 100 84 78 84 46 C 84 30 74 18 62 14 C 73 24 78 38 75 52 C 71 70 56 82 36 84 C 28 85 22 83 18 78 Z" fill="url(#logoNavy)" />
+                    <path d="M 50 28 C 50 42 42 50 28 50 C 42 50 50 58 50 72 C 50 58 58 50 72 50 C 58 50 50 42 50 28 Z" fill="url(#logoStar)" />
+                </svg>
+                <div>
+                    <span class="font-bold text-slate-200 block text-sm">曜昕企業管理顧問有限公司</span>
+                    <span class="text-[10px] text-slate-500 tracking-wider block font-mono">YAO HSIN BUSINESS MANAGEMENT CONSULTING CO., LTD.</span>
+                </div>
+            </div>
+            <div class="text-xs text-slate-500 text-center md:text-left">
+                © 2026 Yao Hsin Business Management Consulting Co., Ltd. All Rights Reserved.
             </div>
             <div class="flex space-x-6 text-xs">
                 <a href="#services" class="hover:text-slate-300">服務範疇</a>
