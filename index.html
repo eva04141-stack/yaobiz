@@ -1349,8 +1349,25 @@
       e.preventDefault();
       const btn = document.getElementById('form-submit-btn');
       const successMsg = document.getElementById('form-success-msg');
+      const phoneInput = document.getElementById('contact_phone');
 
       if (!btn) return;
+
+      // 電話號碼格式檢查機制 (去除空格、連字號後驗證台灣手機與市話)
+      const rawPhone = phoneInput?.value || '';
+      const cleanedPhone = rawPhone.replace(/[\s\-\(\)]/g, '');
+      const taiwanPhoneRegex = /^(09\d{8}|0\d{8,9})$/;
+
+      if (!taiwanPhoneRegex.test(cleanedPhone)) {
+        showToast('請輸入有效的台灣聯絡電話（例如：0912-345-678 或 02-2345-6789）');
+        if (phoneInput) {
+          phoneInput.focus();
+          phoneInput.classList.add('border-red-500');
+        }
+        return;
+      } else if (phoneInput) {
+        phoneInput.classList.remove('border-red-500');
+      }
 
       btn.disabled = true;
       btn.innerHTML = `<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> 送出中...`;
