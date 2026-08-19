@@ -31,7 +31,7 @@
   <meta name="twitter:description" content="從企業現有的資源出發，找到摩擦力最小的切入點，先做，再用市場驗證下一步。">
   <meta name="twitter:image" content="https://yaobiz.net/og-image.png">
 
-  <!-- Schema.org 20 題完整 JSON-LD 結構化資料 -->
+  <!-- Schema.org JSON-LD 結構化資料 -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -266,19 +266,16 @@
       text-rendering: optimizeLegibility;
     }
     .glass-card {
-      background: rgba(11, 30, 54, 0.85);
-      backdrop-filter: blur(12px);
+      background: #0b1e36;
       border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
     }
     .glass-card-hover {
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.25s ease-out;
     }
     .glass-card-hover:hover {
-      background: rgba(15, 38, 68, 0.95);
-      border-color: rgba(245, 158, 11, 0.45);
-      transform: translateY(-4px);
-      box-shadow: 0 20px 35px -10px rgba(245, 158, 11, 0.15);
+      background: #0f2644;
+      border-color: rgba(245, 158, 11, 0.4);
+      transform: translateY(-2px);
     }
     .custom-scrollbar::-webkit-scrollbar {
       width: 6px;
@@ -288,55 +285,28 @@
       background: rgba(6, 19, 34, 0.5);
     }
     .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: rgba(245, 158, 11, 0.35);
+      background: rgba(245, 158, 11, 0.3);
       border-radius: 3px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-      background: rgba(245, 158, 11, 0.6);
-    }
-    /* ScrollSpy Active Navigation Indicator */
-    .nav-active {
-      color: #f59e0b !important;
-      font-weight: 700;
-      position: relative;
-    }
-    .nav-active::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: #f59e0b;
-      border-radius: 2px;
-      box-shadow: 0 0 8px #f59e0b;
-    }
-    /* Smooth Accordion Animation Wrapper */
-    .faq-answer-wrapper {
-      display: grid;
-      grid-template-rows: 0fr;
-      transition: grid-template-rows 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease-out;
-      opacity: 0;
-    }
-    .faq-answer-wrapper.open {
-      grid-template-rows: 1fr;
-      opacity: 1;
-    }
-    .faq-answer-inner {
-      overflow: hidden;
     }
     input, select, textarea, button, a {
       touch-action: manipulation;
+    }
+    @keyframes toastIn {
+      from { transform: translateY(100%) opacity(0); }
+      to { transform: translateY(0) opacity(1); }
+    }
+    .toast-anim {
+      animation: toastIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
   </style>
 </head>
 <body class="font-sans antialiased overflow-x-hidden custom-scrollbar bg-[#061322] text-slate-100 selection:bg-amber-500 selection:text-slate-950">
 
   <!-- Navigation Header -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-[#061322]/90 backdrop-blur-md border-b border-slate-800/80 transition-all duration-300" id="navbar">
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#061322]/90 backdrop-blur-md border-b border-slate-800 transition-all duration-300" id="navbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       <a href="#" class="flex items-center gap-3.5 group active:scale-95 transition-transform">
-        <div class="w-[50px] h-[50px] min-w-[50px] min-h-[50px] flex items-center justify-center relative overflow-hidden rounded-full p-0.5 bg-slate-900 border border-amber-500/40 group-hover:border-amber-500/80 transition-colors shadow-lg shadow-amber-500/10">
+        <div class="w-[50px] h-[50px] min-w-[50px] min-h-[50px] flex items-center justify-center relative overflow-hidden rounded-full p-0.5 bg-slate-900 border border-amber-500/40 group-hover:border-amber-500/80 transition-colors">
           <svg class="w-[50px] h-[50px]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 50px; height: 50px;">
             <path d="M 68 12 C 38 12, 16 32, 16 54 C 16 57, 19 63, 25 69 C 21 58, 25 36, 48 24 C 58 18, 68 16, 76 16 C 73 13, 70 12, 68 12 Z" fill="url(#navOrangeGrad)"/>
             <path d="M 32 88 C 62 88, 84 68, 84 46 C 84 43, 81 37, 75 31 C 79 42, 75 64, 52 76 C 42 82, 32 84, 24 84 C 27 87, 30 88, 32 88 Z" fill="url(#navNavyGrad)"/>
@@ -371,15 +341,15 @@
         <a href="#section-01" class="nav-link hover:text-amber-400 transition-colors py-1">核心理念</a>
         <a href="#section-02" class="nav-link hover:text-amber-400 transition-colors py-1">切入策略</a>
         <a href="#section-03" class="nav-link hover:text-amber-400 transition-colors py-1">服務項目</a>
-        <a href="#section-04" class="nav-link hover:text-amber-400 transition-colors py-1">合作流程</a>
+        <a href="#section-04" class="nav-link hover:text-amber-400 transition-colors py-1">怎麼開始</a>
         <a href="#section-05" class="nav-link hover:text-amber-400 transition-colors py-1">實戰經驗</a>
         <a href="#section-06" class="nav-link hover:text-amber-400 transition-colors py-1">團隊專長</a>
-        <a href="#section-07" class="nav-link hover:text-amber-400 transition-colors py-1">精選案例</a>
+        <a href="#section-07" class="nav-link hover:text-amber-400 transition-colors py-1">合作回饋</a>
         <a href="#section-faq" class="nav-link hover:text-amber-400 transition-colors py-1">常見問題</a>
       </nav>
 
       <div class="flex items-center gap-3">
-        <a href="#section-08" class="bg-amber-500 hover:bg-amber-400 active:scale-95 text-slate-950 font-bold px-5 py-2.5 rounded-full text-xs sm:text-sm transition-all flex items-center gap-2 group min-h-[44px] shadow-lg shadow-amber-500/20">
+        <a href="#section-08" class="bg-amber-500 hover:bg-amber-600 active:scale-95 text-slate-950 font-bold px-5 py-2.5 rounded-full text-xs sm:text-sm transition-all flex items-center gap-2 group min-h-[44px]">
           <span>與曜昕聊聊</span>
           <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
         </a>
@@ -390,31 +360,31 @@
     </div>
 
     <!-- Mobile Navigation Drawer -->
-    <div id="mobile-menu" class="hidden md:hidden bg-[#061322]/98 backdrop-blur-xl border-t border-slate-800 px-6 py-6 space-y-3 shadow-2xl">
+    <div id="mobile-menu" class="hidden md:hidden bg-[#061322] border-t border-slate-800 px-6 py-6 space-y-3">
       <a href="#section-01" class="mobile-nav-link block text-slate-200 font-medium py-2.5 hover:text-amber-400 border-b border-slate-800">01｜核心理念</a>
       <a href="#section-02" class="mobile-nav-link block text-slate-200 font-medium py-2.5 hover:text-amber-400 border-b border-slate-800">02｜切入策略與痛點檢測</a>
       <a href="#section-03" class="mobile-nav-link block text-slate-200 font-medium py-2.5 hover:text-amber-400 border-b border-slate-800">03｜服務項目</a>
-      <a href="#section-04" class="mobile-nav-link block text-slate-200 font-medium py-2.5 hover:text-amber-400 border-b border-slate-800">04｜合作流程</a>
+      <a href="#section-04" class="mobile-nav-link block text-slate-200 font-medium py-2.5 hover:text-amber-400 border-b border-slate-800">04｜怎麼開始</a>
       <a href="#section-05" class="mobile-nav-link block text-slate-200 font-medium py-2.5 hover:text-amber-400 border-b border-slate-800">05｜實戰經驗</a>
       <a href="#section-06" class="mobile-nav-link block text-slate-200 font-medium py-2.5 hover:text-amber-400 border-b border-slate-800">06｜團隊專長</a>
-      <a href="#section-07" class="mobile-nav-link block text-slate-200 font-medium py-2.5 hover:text-amber-400 border-b border-slate-800">07｜精選案例</a>
+      <a href="#section-07" class="mobile-nav-link block text-slate-200 font-medium py-2.5 hover:text-amber-400 border-b border-slate-800">07｜合作回饋</a>
       <a href="#section-faq" class="mobile-nav-link block text-slate-200 font-medium py-2.5 hover:text-amber-400 border-b border-slate-800">FAQ｜常見問題 (20題)</a>
-      <a href="#section-08" class="mobile-nav-link block text-slate-950 font-bold py-3.5 px-4 bg-amber-500 rounded-xl flex items-center justify-between active:scale-98 shadow-lg shadow-amber-500/20 mt-2">
-        <span>08｜預約免費諮詢單</span>
-        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      <a href="#section-08" class="mobile-nav-link block text-amber-400 font-bold py-3.5 px-3 flex items-center justify-between active:bg-amber-500/10 rounded-xl">
+        <span>預約免費諮詢單</span>
+        <i data-lucide="arrow-right" class="w-4 h-4 text-amber-400"></i>
       </a>
     </div>
   </header>
 
   <!-- 01｜ Hero Section -->
   <section id="section-01" class="relative pt-32 pb-20 sm:pt-40 sm:pb-28 md:pt-48 md:pb-36 overflow-hidden">
-    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[650px] h-[350px] sm:h-[650px] bg-amber-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] bg-amber-500/10 rounded-full blur-[120px] pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="max-w-4xl mx-auto space-y-10 sm:space-y-12 text-center">
         <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-wide text-white leading-relaxed sm:leading-relaxed">
           <span class="block mb-3 sm:mb-4">從想法到市場，</span>
-          <span class="text-amber-400 block drop-shadow-sm">和企業一起把事情做出來</span>
+          <span class="text-amber-400 block">和企業一起把事情做出來</span>
         </h1>
 
         <p class="text-slate-200 text-base sm:text-lg lg:text-xl leading-relaxed sm:leading-loose max-w-3xl mx-auto font-normal px-2">
@@ -438,7 +408,7 @@
         </div>
 
         <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#section-03" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-400 active:scale-95 text-slate-950 font-bold px-8 py-4 rounded-xl shadow-xl shadow-amber-500/20 transition-all text-center flex items-center justify-center gap-2 min-h-[50px] text-base">
+          <a href="#section-03" class="w-full sm:w-auto bg-brand-500 hover:bg-brand-600 active:scale-95 text-slate-950 font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-center flex items-center justify-center gap-2 min-h-[50px] text-base">
             <span>看看我們能做什麼</span>
             <i data-lucide="chevron-down" class="w-5 h-5"></i>
           </a>
@@ -504,7 +474,7 @@
           </h3>
 
           <div class="space-y-3" id="pain-points-list">
-            <button onclick="selectPainPoint(0)" id="pain-btn-0" class="pain-point-btn w-full text-left p-4 sm:p-5 rounded-xl glass-card transition-all border border-amber-500/60 bg-slate-800 text-white flex items-center justify-between group active:scale-[0.99]">
+            <button onclick="selectPainPoint(0)" id="pain-btn-0" class="pain-point-btn w-full text-left p-4 sm:p-5 rounded-xl glass-card transition-all border border-amber-500/50 bg-slate-800 text-white flex items-center justify-between group active:scale-[0.99]">
               <div class="flex items-center gap-3.5">
                 <div class="w-8 h-8 rounded-lg bg-amber-500 text-slate-950 font-bold flex items-center justify-center text-sm shrink-0">1</div>
                 <span class="font-medium text-xs sm:text-sm leading-snug">想做新產品，卻不知道市場買不買單。</span>
@@ -540,7 +510,7 @@
 
         <!-- Pain Point Resolution Card -->
         <div class="lg:col-span-7 flex flex-col">
-          <div id="pain-solution-card" class="glass-card rounded-2xl p-6 sm:p-8 border-amber-500/40 bg-gradient-to-br from-brand-800/90 to-brand-900/95 relative shadow-2xl h-full flex flex-col justify-between transition-all duration-300">
+          <div id="pain-solution-card" class="glass-card rounded-2xl p-6 sm:p-8 border-amber-500/40 bg-gradient-to-br from-brand-800/90 to-brand-900/95 relative shadow-xl h-full flex flex-col justify-between transition-all">
             <div>
               <div class="inline-block px-3.5 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-semibold mb-4 border border-amber-500/30" id="solution-tag">
                 針對痛點 01 曜昕解法
@@ -551,7 +521,7 @@
               <p class="text-slate-300 leading-relaxed text-sm sm:text-base mb-6 font-normal" id="solution-desc">
                 不急著大舉投入量產！曜昕會協助從產品定位、規格與銷售情境下手，重新梳理現有資源，設計出一個可快速測試的 MVP 版本，先取得真實市場買單的數據驗證。
               </p>
-              <div class="bg-slate-950/80 p-4 sm:p-5 rounded-xl border border-slate-800 text-xs sm:text-sm text-slate-200 space-y-2.5">
+              <div class="bg-slate-950 p-4 sm:p-5 rounded-xl border border-slate-800 text-xs sm:text-sm text-slate-200 space-y-2.5">
                 <div class="font-bold text-amber-400 flex items-center gap-2">
                   <i data-lucide="check-circle-2" class="w-4 h-4 shrink-0"></i>
                   <span>曜昕切入步驟與落地執行：</span>
@@ -566,7 +536,7 @@
 
             <div class="pt-6 mt-6 border-t border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <span class="text-xs text-slate-400 font-medium">先做對一件事，再談下一步。</span>
-              <button onclick="prefillFormForPainPoint()" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-400 active:scale-95 text-slate-950 font-bold px-6 py-3 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 transition-all min-h-[44px] shadow-md shadow-amber-500/10">
+              <button onclick="prefillFormForPainPoint()" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 active:scale-95 text-slate-950 font-bold px-6 py-3 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 transition-all min-h-[44px]">
                 <span>預約討論</span>
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
               </button>
@@ -595,7 +565,7 @@
         <!-- Service 1 -->
         <div id="section-03-market" class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 border-slate-800 flex flex-col justify-between group h-full">
           <div>
-            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-6">
               <i data-lucide="compass" class="w-6 h-6"></i>
             </div>
             <div class="text-xs font-mono text-amber-400 font-bold mb-2">SERVICE 01</div>
@@ -605,16 +575,15 @@
               從企業現有產品與能力出發，探索政府市場、新通路與合作夥伴，協助企業找到新的銷售可能。
             </p>
           </div>
-          <button onclick="selectServiceAndScroll('市場開發')" class="w-full bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-100 py-3.5 rounded-xl font-bold text-sm transition-all border border-slate-700 flex items-center justify-center gap-2">
-            <span>了解市場開發</span>
-            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          <button onclick="selectServiceAndScroll('市場開發')" class="w-full bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-100 py-3.5 rounded-xl font-bold text-sm transition-all border border-slate-700">
+            <span>了解市場開發 →</span>
           </button>
         </div>
 
         <!-- Service 2 -->
         <div id="section-03-product" class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 border-slate-800 flex flex-col justify-between group h-full">
           <div>
-            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-6">
               <i data-lucide="lightbulb" class="w-6 h-6"></i>
             </div>
             <div class="text-xs font-mono text-amber-400 font-bold mb-2">SERVICE 02</div>
@@ -624,16 +593,15 @@
               從產品定位、規格、定價到銷售情境，重新整理企業現有資源，設計新的產品與服務可能。
             </p>
           </div>
-          <button onclick="selectServiceAndScroll('產品設計')" class="w-full bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-100 py-3.5 rounded-xl font-bold text-sm transition-all border border-slate-700 flex items-center justify-center gap-2">
-            <span>了解產品設計</span>
-            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          <button onclick="selectServiceAndScroll('產品設計')" class="w-full bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-100 py-3.5 rounded-xl font-bold text-sm transition-all border border-slate-700">
+            <span>了解產品設計 →</span>
           </button>
         </div>
 
         <!-- Service 3 -->
         <div id="section-03-gov" class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 border-slate-800 flex flex-col justify-between group h-full">
           <div>
-            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-6">
               <i data-lucide="file-check" class="w-6 h-6"></i>
             </div>
             <div class="text-xs font-mono text-amber-400 font-bold mb-2">SERVICE 03</div>
@@ -643,16 +611,15 @@
               從企業現況與發展方向出發，協助梳理商業模式、創新內容與執行計畫，陪企業完成補助申請的準備與推進。
             </p>
           </div>
-          <button onclick="selectServiceAndScroll('政府補助申請陪跑')" class="w-full bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-100 py-3.5 rounded-xl font-bold text-sm transition-all border border-slate-700 flex items-center justify-center gap-2">
-            <span>了解政府補助</span>
-            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          <button onclick="selectServiceAndScroll('政府補助申請陪跑')" class="w-full bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-100 py-3.5 rounded-xl font-bold text-sm transition-all border border-slate-700">
+            <span>了解政府補助 →</span>
           </button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 04｜ 合作流程 -->
+  <!-- 04｜ 怎麼開始 -->
   <section id="section-04" class="py-20 sm:py-24 bg-brand-800/30 border-t border-slate-800 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
@@ -868,69 +835,175 @@
     </div>
   </section>
 
-  <!-- 07｜ 精選案例 -->
-  <section id="section-07" class="py-20 sm:py-24 relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
-        <span class="text-amber-400 font-mono text-xs tracking-wider uppercase px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 inline-block font-semibold">SELECTED CASES</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-normal">
-          實戰精選案例
+  <!-- 07｜ 合作回饋 (優化 RWD & 手機/電腦適讀性) -->
+  <section id="section-07" class="py-20 sm:py-28 relative bg-[#061322]">
+    <!-- 背景輕微暗光流影 -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[140px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <!-- 標題區域 -->
+      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-20 space-y-3.5">
+        <span class="text-amber-400 font-mono text-xs tracking-wider uppercase px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 inline-block font-semibold">CLIENT TESTIMONIALS</span>
+        <h2 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-normal leading-snug">
+          曜昕幫客戶做了什麼
         </h2>
-        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-          協助不同階段的企業，將既有資源轉化為具體的第二成長曲線。
+        <p class="text-slate-300 text-sm sm:text-base lg:text-lg leading-relaxed font-normal max-w-xl mx-auto">
+          不只是給建議，而是一起把下一步做出來。
         </p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6 sm:gap-8">
-        <!-- Case 1 -->
-        <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 border-slate-800 flex flex-col justify-between space-y-6">
-          <div class="space-y-4">
-            <span class="text-xs font-mono font-bold text-amber-400 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 inline-block">CASE 01｜第二曲線產品設計</span>
-            <h3 class="text-xl font-bold text-white leading-snug">傳統零售品牌重組既有核心技術，推出 MVP 迅速進入新市場</h3>
-            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
-              盤點企業既有供應鏈與客戶基礎，重新定義服務情境並推出最小可行性商品測試，在低行銷成本下取得真實訂單反饋。
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-800/80 text-xs text-amber-300/90 font-medium bg-slate-950/40 p-3 rounded-xl border border-slate-800/50">
-            ✓ 成果：成功驗證新客群買單意願，降低 70% 初期擴產風險。
-          </div>
-        </div>
+      <!-- 響應式 12 欄 Layout (電腦端 7+5 頂列 / 4+4+4 底列；平板 2 欄；手機單欄最適化) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
 
-        <!-- Case 2 -->
-        <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 border-slate-800 flex flex-col justify-between space-y-6">
-          <div class="space-y-4">
-            <span class="text-xs font-mono font-bold text-blue-400 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 inline-block">CASE 02｜政府標案開發</span>
-            <h3 class="text-xl font-bold text-white leading-snug">軟體企業跨入公共採購，從選案拆解到高分拿下標案</h3>
-            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
-              協助分析政府 RFP 隱性需求與評委配分，重新架構提案簡報與 QA 答詢預演，成功奪得穩定營收指標標案。
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-800/80 text-xs text-amber-300/90 font-medium bg-slate-950/40 p-3 rounded-xl border border-slate-800/50">
-            ✓ 成果：建立跨足政府市場之第二營收曲線，團隊具備自主投標能力。
-          </div>
-        </div>
+        <!-- CASE 01 (主打案例：電腦 7 欄 / 平板 2 欄全寬) -->
+        <article class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 md:p-9 border border-slate-800 flex flex-col justify-between md:col-span-2 lg:col-span-7 space-y-6 relative group bg-gradient-to-br from-[#0b1e36] via-[#0d2340] to-[#08172b]">
+          <div class="space-y-4 sm:space-y-5">
+            <div class="flex flex-wrap items-center justify-between gap-2.5">
+              <span class="text-xs font-mono font-bold text-amber-400 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 inline-flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+                CASE 01
+              </span>
+              <span class="text-[11px] font-medium text-slate-400 bg-slate-900/80 px-3 py-1 rounded-md border border-slate-800">休閒產業．轉型測試</span>
+            </div>
+            
+            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-white leading-snug tracking-tight group-hover:text-amber-300 transition-colors">
+              從財務報表的線索，找到第二產品曲線
+            </h3>
 
-        <!-- Case 3 -->
-        <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 border-slate-800 flex flex-col justify-between space-y-6">
-          <div class="space-y-4">
-            <span class="text-xs font-mono font-bold text-emerald-400 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 inline-block">CASE 03｜政府補助陪跑</span>
-            <h3 class="text-xl font-bold text-white leading-snug">中小企業創新專案申請政府補助，全程輔導並順利核銷</h3>
-            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
-              梳理創新計畫架構、編列合規預算與 Smart KPI 指標，並在執行期全程陪跑核銷流程，零裁扣順利完成專案結案。
-            </p>
+            <div class="relative pl-4 sm:pl-5 border-l-2 border-amber-500/50 my-3 sm:my-4">
+              <blockquote class="text-slate-200 text-sm sm:text-base leading-relaxed sm:leading-loose font-normal">
+                「我們原本既有的產品線創造出的營收非常固定，公司營業額一直無法提升。曜昕沒有叫我們重新發明輪子，而是回頭檢視財報與既有資源，從裡面找出被忽略的機會，跟我們一起設計出第一個新產品雛形，直接拿到市場驗證。<span class="text-amber-300 font-semibold bg-amber-500/10 px-1 py-0.5 rounded">3 個月內，我們完成了第一筆交易驗證，接下來3個月的YOY連續成長。</span>」
+              </blockquote>
+            </div>
           </div>
-          <div class="pt-4 border-t border-slate-800/80 text-xs text-amber-300/90 font-medium bg-slate-950/40 p-3 rounded-xl border border-slate-800/50">
-            ✓ 成果：順利取得研發補助資金，補足研發階段現金流。
+
+          <div class="pt-4 sm:pt-5 border-t border-slate-800/80 flex flex-wrap items-center gap-2">
+            <span class="px-3 py-1.5 rounded-lg bg-amber-500/10 text-amber-300 border border-amber-500/20 text-xs font-semibold"># 產品設計</span>
+            <span class="px-3 py-1.5 rounded-lg bg-slate-900/90 text-slate-300 border border-slate-800 text-xs font-medium"># 市場開發</span>
+            <span class="px-3 py-1.5 rounded-lg bg-slate-900/90 text-slate-300 border border-slate-800 text-xs font-medium"># 市場驗證</span>
           </div>
-        </div>
+        </article>
+
+        <!-- CASE 02 (電腦 5 欄) -->
+        <article class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 border border-slate-800 flex flex-col justify-between md:col-span-1 lg:col-span-5 space-y-6 relative group bg-[#0b1e36]">
+          <div class="space-y-4 sm:space-y-5">
+            <div class="flex flex-wrap items-center justify-between gap-2.5">
+              <span class="text-xs font-mono font-bold text-blue-400 px-3.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 inline-block">
+                CASE 02
+              </span>
+              <span class="text-[11px] font-medium text-slate-400 bg-slate-900/80 px-3 py-1 rounded-md border border-slate-800">餐飲旅宿．異業導客</span>
+            </div>
+
+            <h3 class="text-lg sm:text-xl font-bold text-white leading-snug tracking-tight group-hover:text-blue-300 transition-colors">
+              從品牌公關，走向合作生態圈
+            </h3>
+
+            <div class="relative pl-4 border-l-2 border-blue-500/40 my-3 sm:my-4">
+              <blockquote class="text-slate-200 text-sm sm:text-base leading-relaxed sm:leading-loose font-normal">
+                「以前我們做異業合作，大多停留在互相曝光、發新聞稿。曜昕帶我們換一個角度思考：與其單打獨鬥找客人，不如建立一個能彼此導客的合作生態圈。從盤點潛在夥伴、設計合作機制，到實際洽談合作條件，曜昕陪我們一起訪客，設計合作協議。<span class="text-blue-300 font-semibold bg-blue-500/10 px-1 py-0.5 rounded">最後，我們談成了 3 間異業合作</span>，客源也不再只靠自己一家。」
+              </blockquote>
+            </div>
+          </div>
+
+          <div class="pt-4 sm:pt-5 border-t border-slate-800/80 flex flex-wrap items-center gap-2">
+            <span class="px-3 py-1.5 rounded-lg bg-blue-500/10 text-blue-300 border border-blue-500/20 text-xs font-semibold"># 市場開發</span>
+            <span class="px-3 py-1.5 rounded-lg bg-slate-900/90 text-slate-300 border border-slate-800 text-xs font-medium"># BD</span>
+            <span class="px-3 py-1.5 rounded-lg bg-slate-900/90 text-slate-300 border border-slate-800 text-xs font-medium"># 合作生態圈</span>
+          </div>
+        </article>
+
+        <!-- CASE 03 (電腦 4 欄) -->
+        <article class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 border border-slate-800 flex flex-col justify-between md:col-span-1 lg:col-span-4 space-y-6 relative group bg-[#0b1e36]">
+          <div class="space-y-4 sm:space-y-5">
+            <div class="flex flex-wrap items-center justify-between gap-2.5">
+              <span class="text-xs font-mono font-bold text-emerald-400 px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 inline-block">
+                CASE 03
+              </span>
+              <span class="text-[11px] font-medium text-slate-400 bg-slate-900/80 px-3 py-1 rounded-md border border-slate-800">研發企業．補助落地方案</span>
+            </div>
+
+            <h3 class="text-lg sm:text-xl font-bold text-white leading-snug tracking-tight group-hover:text-emerald-300 transition-colors">
+              從「想申請補助」，到真正能執行的成長計畫
+            </h3>
+
+            <div class="relative pl-4 border-l-2 border-emerald-500/40 my-3 sm:my-4">
+              <blockquote class="text-slate-200 text-sm sm:text-base leading-relaxed sm:leading-loose font-normal">
+                「一開始我們最怕的，就是補助案『寫得漂亮、最後卻做不到』。曜昕不是先幫我們寫一份好看的計畫書，而是先搞懂政策方向，再從公司的實際能力出發，務實規劃執行指標與預算，連後續核銷都提前納入考量。整個過程讓我們更清楚：這筆資源不是用來應付評審的一份文件，而是可以真正落地、成為公司成長動能的計畫。」
+              </blockquote>
+            </div>
+          </div>
+
+          <div class="pt-4 sm:pt-5 border-t border-slate-800/80 flex flex-wrap items-center gap-2">
+            <span class="px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 text-xs font-semibold"># 政府補助</span>
+            <span class="px-3 py-1.5 rounded-lg bg-slate-900/90 text-slate-300 border border-slate-800 text-xs font-medium"># 顧問輔導</span>
+            <span class="px-3 py-1.5 rounded-lg bg-slate-900/90 text-slate-300 border border-slate-800 text-xs font-medium"># 提案規劃</span>
+          </div>
+        </article>
+
+        <!-- CASE 04 (電腦 4 欄) -->
+        <article class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 border border-slate-800 flex flex-col justify-between md:col-span-1 lg:col-span-4 space-y-6 relative group bg-[#0b1e36]">
+          <div class="space-y-4 sm:space-y-5">
+            <div class="flex flex-wrap items-center justify-between gap-2.5">
+              <span class="text-xs font-mono font-bold text-purple-400 px-3.5 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 inline-block">
+                CASE 04
+              </span>
+              <span class="text-[11px] font-medium text-slate-400 bg-slate-900/80 px-3 py-1 rounded-md border border-slate-800">資訊軟體．政府採購市場</span>
+            </div>
+
+            <h3 class="text-lg sm:text-xl font-bold text-white leading-snug tracking-tight group-hover:text-purple-300 transition-colors">
+              從「不知道該不該投」，開始建立政府市場開發能力
+            </h3>
+
+            <div class="relative pl-4 border-l-2 border-purple-500/40 my-3 sm:my-4">
+              <blockquote class="text-slate-200 text-sm sm:text-base leading-relaxed sm:leading-loose font-normal">
+                「政府標案這一塊，我們原本完全是門外漢，光是判斷一個案子該不該投，就常常卡住。曜昕從市場判斷開始，陪我們一路拆解標案、思考提案策略，也一起討論該怎麼溝通與推進。不是丟一份範本讓我們自己摸索，而是陪我們真正走完第一輪。<span class="text-purple-300 font-semibold bg-purple-500/10 px-1 py-0.5 rounded">現在，我們不只是知道怎麼投，也開始慢慢建立起自己的政府市場開發能力。</span>」
+              </blockquote>
+            </div>
+          </div>
+
+          <div class="pt-4 sm:pt-5 border-t border-slate-800/80 flex flex-wrap items-center gap-2">
+            <span class="px-3 py-1.5 rounded-lg bg-purple-500/10 text-purple-300 border border-purple-500/20 text-xs font-semibold"># 政府市場開發</span>
+            <span class="px-3 py-1.5 rounded-lg bg-slate-900/90 text-slate-300 border border-slate-800 text-xs font-medium"># 陪跑</span>
+            <span class="px-3 py-1.5 rounded-lg bg-slate-900/90 text-slate-300 border border-slate-800 text-xs font-medium"># 新商業模式建立</span>
+          </div>
+        </article>
+
+        <!-- CASE 05 (電腦 4 欄) -->
+        <article class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 border border-slate-800 flex flex-col justify-between md:col-span-1 lg:col-span-4 space-y-6 relative group bg-[#0b1e36]">
+          <div class="space-y-4 sm:space-y-5">
+            <div class="flex flex-wrap items-center justify-between gap-2.5">
+              <span class="text-xs font-mono font-bold text-rose-400 px-3.5 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 inline-block">
+                CASE 05
+              </span>
+              <span class="text-[11px] font-medium text-slate-400 bg-slate-900/80 px-3 py-1 rounded-md border border-slate-800">新創品牌．體驗與定價設計</span>
+            </div>
+
+            <h3 class="text-lg sm:text-xl font-bold text-white leading-snug tracking-tight group-hover:text-rose-300 transition-colors">
+              從產品想法，到可以被市場買單的體驗
+            </h3>
+
+            <div class="relative pl-4 border-l-2 border-rose-500/40 my-3 sm:my-4">
+              <blockquote class="text-slate-200 text-sm sm:text-base leading-relaxed sm:leading-loose font-normal">
+                「我們原本有產品構想，但真正要推向市場時，才發現『做出產品』和『讓人願意買』是兩件事。曜昕陪我們重新梳理產品定位、使用情境與目標客群，重新設計產品內容與體驗方式，再把產品放進實際的市場情境中測試。從募資頁面的溝通、銷售內容，到體驗課程的設計，一步一步把原本抽象的想法變成消費者看得懂、願意參與，也願意付費的產品。」
+              </blockquote>
+            </div>
+          </div>
+
+          <div class="pt-4 sm:pt-5 border-t border-slate-800/80 flex flex-wrap items-center gap-2">
+            <span class="px-3 py-1.5 rounded-lg bg-rose-500/10 text-rose-300 border border-rose-500/20 text-xs font-semibold"># 產品設計</span>
+            <span class="px-3 py-1.5 rounded-lg bg-slate-900/90 text-slate-300 border border-slate-800 text-xs font-medium"># 市場開發</span>
+            <span class="px-3 py-1.5 rounded-lg bg-slate-900/90 text-slate-300 border border-slate-800 text-xs font-medium"># 產品體驗設計</span>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
 
-  <!-- FAQ Section (完整 20 題展現 + 搜尋關鍵字功能) -->
+  <!-- FAQ Section (完整 20 題展現) -->
   <section id="section-faq" class="py-20 sm:py-24 bg-brand-800/40 border-t border-slate-800 relative">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-8 space-y-3">
+      <div class="text-center max-w-3xl mx-auto mb-10 space-y-3">
         <span class="text-amber-400 font-mono text-xs tracking-wider uppercase px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 inline-block font-semibold">FREQUENTLY ASKED QUESTIONS</span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-normal">
           常見問題 FAQ（共 20 題）
@@ -940,338 +1013,296 @@
         </p>
       </div>
 
-      
-
       <!-- FAQ 分類頁籤 -->
       <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10" id="faq-category-tabs">
-        <button onclick="filterFaqCategory('all')" id="faq-tab-all" class="faq-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-amber-500 text-slate-950 shadow-md">全部 (20)</button>
+        <button onclick="filterFaqCategory('all')" id="faq-tab-all" class="faq-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-amber-500 text-slate-950 shadow-md">全部問題 (20)</button>
         <button onclick="filterFaqCategory('about')" id="faq-tab-about" class="faq-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800">關於曜昕 (Q1-Q4)</button>
-        <button onclick="filterFaqCategory('market')" id="faq-tab-market" class="faq-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800">市場與標案 (Q5-Q9)</button>
-        <button onclick="filterFaqCategory('product')" id="faq-tab-product" class="faq-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800">產品與 MVP (Q10-Q12)</button>
-        <button onclick="filterFaqCategory('gov')" id="faq-tab-gov" class="faq-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800">政府補助 (Q13-Q18)</button>
-        <button onclick="filterFaqCategory('contact')" id="faq-tab-contact" class="faq-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800">合作接洽 (Q19-Q20)</button>
+        <button onclick="filterFaqCategory('market')" id="faq-tab-market" class="faq-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800">市場開發與標案 (Q5-Q9)</button>
+        <button onclick="filterFaqCategory('product')" id="faq-tab-product" class="faq-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800">產品設計與 MVP (Q10-Q12)</button>
+        <button onclick="filterFaqCategory('gov')" id="faq-tab-gov" class="faq-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800">政府補助申請 (Q13-Q18)</button>
+        <button onclick="filterFaqCategory('contact')" id="faq-tab-contact" class="faq-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800">合作與接洽 (Q19-Q20)</button>
       </div>
 
-      <!-- 20 題真實 HTML DOM 卡片列表 -->
+      <!-- 20 題真實 HTML DOM 卡片列表 (預設展開) -->
       <div class="space-y-4" id="faq-accordion-container">
         
         <!-- Q1 -->
-        <div class="faq-card faq-cat-about glass-card rounded-2xl border border-slate-800/80 overflow-hidden transition-all hover:border-slate-700">
+        <div class="faq-card faq-cat-about glass-card rounded-2xl border border-slate-800 overflow-hidden transition-all">
           <button onclick="toggleFaqAccordion(1)" class="w-full p-5 sm:p-6 text-left flex items-start justify-between gap-4 bg-slate-900/60 hover:bg-slate-800/80 transition-colors">
             <h3 class="text-base sm:text-lg font-bold text-amber-400 flex items-start gap-2.5">
               <span class="font-mono shrink-0">Q1.</span>
               <span>曜昕企業管理顧問是做什麼的？</span>
             </h3>
-            <i data-lucide="chevron-down" id="faq-icon-1" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" id="faq-icon-1" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300" style="transform: rotate(180deg);"></i>
           </button>
-          <div id="faq-ans-1" class="faq-answer-wrapper">
-            <div class="faq-answer-inner p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/80 bg-slate-950/40">
-              曜昕企業管理顧問有限公司提供三項核心服務：市場開發顧問（含政府標案開發）、第二曲線產品設計，以及政府補助申請陪跑。主要是協助資源有限的中小企業從既有能力與資源出發，找到可快速驗證的切入點，或協助中小企業找到可運用的外部資源。
-            </div>
+          <div id="faq-ans-1" class="p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800 bg-slate-950/40" style="display: block;">
+            曜昕企業管理顧問有限公司提供三項核心服務：市場開發顧問（含政府標案開發）、第二曲線產品設計，以及政府補助申請陪跑。主要是協助資源有限的中小企業從既有能力與資源出發，找到可快速驗證的切入點，或協助中小企業找到可運用的外部資源。
           </div>
         </div>
 
         <!-- Q2 -->
-        <div class="faq-card faq-cat-about glass-card rounded-2xl border border-slate-800/80 overflow-hidden transition-all hover:border-slate-700">
+        <div class="faq-card faq-cat-about glass-card rounded-2xl border border-slate-800 overflow-hidden transition-all">
           <button onclick="toggleFaqAccordion(2)" class="w-full p-5 sm:p-6 text-left flex items-start justify-between gap-4 bg-slate-900/60 hover:bg-slate-800/80 transition-colors">
             <h3 class="text-base sm:text-lg font-bold text-amber-400 flex items-start gap-2.5">
               <span class="font-mono shrink-0">Q2.</span>
               <span>曜昕的顧問有什麼背景？可信嗎？</span>
             </h3>
-            <i data-lucide="chevron-down" id="faq-icon-2" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" id="faq-icon-2" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300" style="transform: rotate(180deg);"></i>
           </button>
-          <div id="faq-ans-2" class="faq-answer-wrapper">
-            <div class="faq-answer-inner p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/80 bg-slate-950/40">
-              創辦人擁有近 20 年資訊軟體業資歷，歷練橫跨系統分析師、專案經理、業務開發、產品企劃到部門主管職務，服務對象涵蓋金融證券、國際品牌、休閒業、零售業與政府機關，並持有 PMP（Project Management Professional）專案管理證照。
-            </div>
+          <div id="faq-ans-2" class="p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800 bg-slate-950/40" style="display: block;">
+            創辦人擁有近 20 年資訊軟體業資歷，歷練橫跨系統分析師、專案經理、業務開發、產品企劃到部門主管職務，服務對象涵蓋金融證券、國際品牌、休閒業、零售業與政府機關，並持有 PMP（Project Management Professional）專案管理證照。
           </div>
         </div>
 
         <!-- Q3 -->
-        <div class="faq-card faq-cat-about glass-card rounded-2xl border border-slate-800/80 overflow-hidden transition-all hover:border-slate-700">
+        <div class="faq-card faq-cat-about glass-card rounded-2xl border border-slate-800 overflow-hidden transition-all">
           <button onclick="toggleFaqAccordion(3)" class="w-full p-5 sm:p-6 text-left flex items-start justify-between gap-4 bg-slate-900/60 hover:bg-slate-800/80 transition-colors">
             <h3 class="text-base sm:text-lg font-bold text-amber-400 flex items-start gap-2.5">
               <span class="font-mono shrink-0">Q3.</span>
               <span>找小型顧問，跟找大型顧問公司比起來有什麼優勢？</span>
             </h3>
-            <i data-lucide="chevron-down" id="faq-icon-3" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" id="faq-icon-3" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300" style="transform: rotate(180deg);"></i>
           </button>
-          <div id="faq-ans-3" class="faq-answer-wrapper">
-            <div class="faq-answer-inner p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/80 bg-slate-950/40">
-              大型顧問公司賣的是團隊陣容與標準化方法論，實際執行常由資淺顧問負責；曜昕反其道而行，強調執行案件的顧問從頭到尾親自服務，即使有其它外部領域顧問參與，溝通上也不需要層層轉達，反應速度與判斷精準度更高。
-            </div>
+          <div id="faq-ans-3" class="p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800 bg-slate-950/40" style="display: block;">
+            大型顧問公司賣的是團隊陣容與標準化方法論，實際執行常由資淺顧問負責；曜昕反其道而行，強調執行案件的顧問從頭到尾親自服務，即使有其它外部領域顧問參與，溝通上也不需要層層轉達，反應速度與判斷精準度更高。
           </div>
         </div>
 
         <!-- Q4 -->
-        <div class="faq-card faq-cat-about glass-card rounded-2xl border border-slate-800/80 overflow-hidden transition-all hover:border-slate-700">
+        <div class="faq-card faq-cat-about glass-card rounded-2xl border border-slate-800 overflow-hidden transition-all">
           <button onclick="toggleFaqAccordion(4)" class="w-full p-5 sm:p-6 text-left flex items-start justify-between gap-4 bg-slate-900/60 hover:bg-slate-800/80 transition-colors">
             <h3 class="text-base sm:text-lg font-bold text-amber-400 flex items-start gap-2.5">
               <span class="font-mono shrink-0">Q4.</span>
               <span>曜昕服務過哪些類型的企業或機關？</span>
             </h3>
-            <i data-lucide="chevron-down" id="faq-icon-4" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" id="faq-icon-4" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300" style="transform: rotate(180deg);"></i>
           </button>
-          <div id="faq-ans-4" class="faq-answer-wrapper">
-            <div class="faq-answer-inner p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/80 bg-slate-950/40">
-              服務經歷涵蓋金融證券業、國際品牌、旅宿零售業與政府機關，橫跨甲方與乙方雙重視角，因此能同時理解企業內部決策邏輯與外部合作夥伴的實際需求。
-            </div>
+          <div id="faq-ans-4" class="p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800 bg-slate-950/40" style="display: block;">
+            服務經歷涵蓋金融證券業、國際品牌、旅宿零售業與政府機關，橫跨甲方與乙方雙重視角，因此能同時理解企業內部決策邏輯與外部合作夥伴的實際需求。
           </div>
         </div>
 
         <!-- Q5 -->
-        <div class="faq-card faq-cat-market glass-card rounded-2xl border border-slate-800/80 overflow-hidden transition-all hover:border-slate-700">
+        <div class="faq-card faq-cat-market glass-card rounded-2xl border border-slate-800 overflow-hidden transition-all">
           <button onclick="toggleFaqAccordion(5)" class="w-full p-5 sm:p-6 text-left flex items-start justify-between gap-4 bg-slate-900/60 hover:bg-slate-800/80 transition-colors">
             <h3 class="text-base sm:text-lg font-bold text-amber-400 flex items-start gap-2.5">
               <span class="font-mono shrink-0">Q5.</span>
               <span>曜昕的市場開發顧問服務包含哪些項目？</span>
             </h3>
-            <i data-lucide="chevron-down" id="faq-icon-5" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" id="faq-icon-5" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300" style="transform: rotate(180deg);"></i>
           </button>
-          <div id="faq-ans-5" class="faq-answer-wrapper">
-            <div class="faq-answer-inner p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/80 bg-slate-950/40">
-              包含政府標案開發、政府市場策略規劃、生態圈夥伴開發、異業合作對接，以及新市場／新通路探索，協助企業從既有產品與能力出發找到新的銷售與合作機會。
-            </div>
+          <div id="faq-ans-5" class="p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800 bg-slate-950/40" style="display: block;">
+            包含政府標案開發、政府市場策略規劃、生態圈夥伴開發、異業合作對接，以及新市場／新通路探索，協助企業從既有產品與能力出發找到新的銷售與合作機會。
           </div>
         </div>
 
         <!-- Q6 -->
-        <div class="faq-card faq-cat-market glass-card rounded-2xl border border-slate-800/80 overflow-hidden transition-all hover:border-slate-700">
+        <div class="faq-card faq-cat-market glass-card rounded-2xl border border-slate-800 overflow-hidden transition-all">
           <button onclick="toggleFaqAccordion(6)" class="w-full p-5 sm:p-6 text-left flex items-start justify-between gap-4 bg-slate-900/60 hover:bg-slate-800/80 transition-colors">
             <h3 class="text-base sm:text-lg font-bold text-amber-400 flex items-start gap-2.5">
               <span class="font-mono shrink-0">Q6.</span>
               <span>為什麼中小企業應該投入政府標案市場？</span>
             </h3>
-            <i data-lucide="chevron-down" id="faq-icon-6" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" id="faq-icon-6" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300" style="transform: rotate(180deg);"></i>
           </button>
-          <div id="faq-ans-6" class="faq-answer-wrapper">
-            <div class="faq-answer-inner p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/80 bg-slate-950/40">
-              政府市場採購預算每年固定釋出、抗景氣波動，是穩定的第二營收曲線；企業可憑專業與策略競標，不需要高額行銷廣告費用；拿下標案實績後，也能大幅提升企業的品牌信任度。
-            </div>
+          <div id="faq-ans-6" class="p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800 bg-slate-950/40" style="display: block;">
+            政府市場採購預算每年固定釋出、抗景氣波動，是穩定的第二營收曲線；企業可憑專業與策略競標，不需要高額行銷廣告費用；拿下標案實績後，也能大幅提升企業的品牌信任度。
           </div>
         </div>
 
         <!-- Q7 -->
-        <div class="faq-card faq-cat-market glass-card rounded-2xl border border-slate-800/80 overflow-hidden transition-all hover:border-slate-700">
+        <div class="faq-card faq-cat-market glass-card rounded-2xl border border-slate-800 overflow-hidden transition-all">
           <button onclick="toggleFaqAccordion(7)" class="w-full p-5 sm:p-6 text-left flex items-start justify-between gap-4 bg-slate-900/60 hover:bg-slate-800/80 transition-colors">
             <h3 class="text-base sm:text-lg font-bold text-amber-400 flex items-start gap-2.5">
               <span class="font-mono shrink-0">Q7.</span>
               <span>曜昕的政府標案開發服務具體怎麼進行？</span>
             </h3>
-            <i data-lucide="chevron-down" id="faq-icon-7" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" id="faq-icon-7" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300" style="transform: rotate(180deg);"></i>
           </button>
-          <div id="faq-ans-7" class="faq-answer-wrapper">
-            <div class="faq-answer-inner p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/80 bg-slate-950/40">
-              分為八個步驟：選案策略（盤點優勢、評估勝率）、RFP 解析（拆解招標文件與承辦隱性需求）、評選拆解（對齊評委配分表設計高分架構）、承辦溝通、提案架構設計、投標提醒（避開行政失誤）、簡報建議，以及答詢預警（預判評審提問並演練 QA）。
-            </div>
+          <div id="faq-ans-7" class="p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800 bg-slate-950/40" style="display: block;">
+            分為八個步驟：選案策略（盤點優勢、評估勝率）、RFP 解析（拆解招標文件與承辦隱性需求）、評選拆解（對齊評委配分表設計高分架構）、承辦溝通、提案架構設計、投標提醒（避開行政失誤）、簡報建議，以及答詢預警（預判評審提問並演練 QA）。
           </div>
         </div>
 
         <!-- Q8 -->
-        <div class="faq-card faq-cat-market glass-card rounded-2xl border border-slate-800/80 overflow-hidden transition-all hover:border-slate-700">
+        <div class="faq-card faq-cat-market glass-card rounded-2xl border border-slate-800 overflow-hidden transition-all">
           <button onclick="toggleFaqAccordion(8)" class="w-full p-5 sm:p-6 text-left flex items-start justify-between gap-4 bg-slate-900/60 hover:bg-slate-800/80 transition-colors">
             <h3 class="text-base sm:text-lg font-bold text-amber-400 flex items-start gap-2.5">
               <span class="font-mono shrink-0">Q8.</span>
               <span>什麼樣的企業適合投入政府標案市場？</span>
             </h3>
-            <i data-lucide="chevron-down" id="faq-icon-8" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" id="faq-icon-8" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300" style="transform: rotate(180deg);"></i>
           </button>
-          <div id="faq-ans-8" class="faq-answer-wrapper">
-            <div class="faq-answer-inner p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/80 bg-slate-950/40">
-              三種情境最適合：已有成熟產品／服務、希望跨入政府市場開闢第二曲線；第一次投入政府標案不知道從何開始；希望把攻案能力留在公司內部、不想長期依賴外部代寫公司。
-            </div>
+          <div id="faq-ans-8" class="p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800 bg-slate-950/40" style="display: block;">
+            三種情境最適合：已有成熟產品／服務、希望跨入政府市場開闢第二曲線；第一次投入政府標案不知道從何開始；希望把攻案能力留在公司內部、不想長期依賴外部代寫公司。
           </div>
         </div>
 
         <!-- Q9 -->
-        <div class="faq-card faq-cat-market glass-card rounded-2xl border border-slate-800/80 overflow-hidden transition-all hover:border-slate-700">
+        <div class="faq-card faq-cat-market glass-card rounded-2xl border border-slate-800 overflow-hidden transition-all">
           <button onclick="toggleFaqAccordion(9)" class="w-full p-5 sm:p-6 text-left flex items-start justify-between gap-4 bg-slate-900/60 hover:bg-slate-800/80 transition-colors">
             <h3 class="text-base sm:text-lg font-bold text-amber-400 flex items-start gap-2.5">
               <span class="font-mono shrink-0">Q9.</span>
               <span>找顧問協助政府標案開發，跟直接找代寫公司差在哪？</span>
             </h3>
-            <i data-lucide="chevron-down" id="faq-icon-9" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" id="faq-icon-9" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300" style="transform: rotate(180deg);"></i>
           </button>
-          <div id="faq-ans-9" class="faq-answer-wrapper">
-            <div class="faq-answer-inner p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/80 bg-slate-950/40">
-              代寫公司通常只交付一份文件，能力不會留在企業內部；曜昕的做法是陪同企業團隊走過完整流程，把選案判斷、標書架構邏輯這些攻案能力留在公司內部，讓企業未來能自主投標。
-            </div>
+          <div id="faq-ans-9" class="p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800 bg-slate-950/40" style="display: block;">
+            代寫公司通常只交付一份文件，能力不會留在企業內部；曜昕的做法是陪同企業團隊走過完整流程，把選案判斷、標書架構邏輯這些攻案能力留在公司內部，讓企業未來能自主投標。
           </div>
         </div>
 
         <!-- Q10 -->
-        <div class="faq-card faq-cat-product glass-card rounded-2xl border border-slate-800/80 overflow-hidden transition-all hover:border-slate-700">
+        <div class="faq-card faq-cat-product glass-card rounded-2xl border border-slate-800 overflow-hidden transition-all">
           <button onclick="toggleFaqAccordion(10)" class="w-full p-5 sm:p-6 text-left flex items-start justify-between gap-4 bg-slate-900/60 hover:bg-slate-800/80 transition-colors">
             <h3 class="text-base sm:text-lg font-bold text-amber-400 flex items-start gap-2.5">
               <span class="font-mono shrink-0">Q10.</span>
               <span>什麼是第二曲線產品？為什麼中小企業需要它？</span>
             </h3>
-            <i data-lucide="chevron-down" id="faq-icon-10" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" id="faq-icon-10" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300" style="transform: rotate(180deg);"></i>
           </button>
-          <div id="faq-ans-10" class="faq-answer-wrapper">
-            <div class="faq-answer-inner p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/80 bg-slate-950/40">
-              第二曲線產品是指企業運用既有的資源、技術或客群基礎，重新設計出的新產品或服務。當主力產品成長趨緩時，第二曲線能提供新的營收來源，且開發成本通常低於從零開始的全新產品線。
-            </div>
+          <div id="faq-ans-10" class="p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800 bg-slate-950/40" style="display: block;">
+            第二曲線產品是指企業運用既有的資源、技術或客群基礎，重新設計出的新產品或服務。當主力產品成長趨緩時，第二曲線能提供新的營收來源，且開發成本通常低於從零開始的全新產品線。
           </div>
         </div>
 
         <!-- Q11 -->
-        <div class="faq-card faq-cat-product glass-card rounded-2xl border border-slate-800/80 overflow-hidden transition-all hover:border-slate-700">
+        <div class="faq-card faq-cat-product glass-card rounded-2xl border border-slate-800 overflow-hidden transition-all">
           <button onclick="toggleFaqAccordion(11)" class="w-full p-5 sm:p-6 text-left flex items-start justify-between gap-4 bg-slate-900/60 hover:bg-slate-800/80 transition-colors">
             <h3 class="text-base sm:text-lg font-bold text-amber-400 flex items-start gap-2.5">
               <span class="font-mono shrink-0">Q11.</span>
               <span>MVP 市場驗證是什麼？跟直接量產有什麼差別？</span>
             </h3>
-            <i data-lucide="chevron-down" id="faq-icon-11" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" id="faq-icon-11" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300" style="transform: rotate(180deg);"></i>
           </button>
-          <div id="faq-ans-11" class="faq-answer-wrapper">
-            <div class="faq-answer-inner p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/80 bg-slate-950/40">
-              MVP（最小可行性產品）是用最低成本打造可實際投入市場測試的產品雛形，先取得真實客戶反饋與購買數據，再決定是否擴大投入，能大幅降低方向錯誤導致的資源浪費風險。
-            </div>
+          <div id="faq-ans-11" class="p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800 bg-slate-950/40" style="display: block;">
+            MVP（最小可行性產品）是用最低成本打造可實際投入市場測試的產品雛形，先取得真實客戶反饋與購買數據，再決定是否擴大投入，能大幅降低方向錯誤導致的資源浪費風險。
           </div>
         </div>
 
         <!-- Q12 -->
-        <div class="faq-card faq-cat-product glass-card rounded-2xl border border-slate-800/80 overflow-hidden transition-all hover:border-slate-700">
+        <div class="faq-card faq-cat-product glass-card rounded-2xl border border-slate-800 overflow-hidden transition-all">
           <button onclick="toggleFaqAccordion(12)" class="w-full p-5 sm:p-6 text-left flex items-start justify-between gap-4 bg-slate-900/60 hover:bg-slate-800/80 transition-colors">
             <h3 class="text-base sm:text-lg font-bold text-amber-400 flex items-start gap-2.5">
               <span class="font-mono shrink-0">Q12.</span>
               <span>曜昕的產品設計顧問服務包含哪些項目？</span>
             </h3>
-            <i data-lucide="chevron-down" id="faq-icon-12" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" id="faq-icon-12" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300" style="transform: rotate(180deg);"></i>
           </button>
-          <div id="faq-ans-12" class="faq-answer-wrapper">
-            <div class="faq-answer-inner p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/80 bg-slate-950/40">
-              從產品定位、規格、定價到銷售情境，重新整理企業現有資源，設計新的產品與服務可能，包含新產品發想、產品定位、服務設計、第二產品曲線規劃與 MVP 市場測試。
-            </div>
+          <div id="faq-ans-12" class="p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800 bg-slate-950/40" style="display: block;">
+            從產品定位、規格、定價到銷售情境，重新整理企業現有資源，設計新的產品與服務可能，包含新產品發想、產品定位、服務設計、第二產品曲線規劃與 MVP 市場測試。
           </div>
         </div>
 
         <!-- Q13 -->
-        <div class="faq-card faq-cat-gov glass-card rounded-2xl border border-slate-800/80 overflow-hidden transition-all hover:border-slate-700">
+        <div class="faq-card faq-cat-gov glass-card rounded-2xl border border-slate-800 overflow-hidden transition-all">
           <button onclick="toggleFaqAccordion(13)" class="w-full p-5 sm:p-6 text-left flex items-start justify-between gap-4 bg-slate-900/60 hover:bg-slate-800/80 transition-colors">
             <h3 class="text-base sm:text-lg font-bold text-amber-400 flex items-start gap-2.5">
               <span class="font-mono shrink-0">Q13.</span>
               <span>政府補助案找代寫要注意什麼？找代寫有風險嗎？</span>
             </h3>
-            <i data-lucide="chevron-down" id="faq-icon-13" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" id="faq-icon-13" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300" style="transform: rotate(180deg);"></i>
           </button>
-          <div id="faq-ans-13" class="faq-answer-wrapper">
-            <div class="faq-answer-inner p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/80 bg-slate-950/40">
-              最大的風險不是寫不寫得過，而是過了之後執行不下去。許多代寫寫手只負責把計畫書寫到符合審查格式、順利取得補助，但如果對企業實際的營運狀況、人力配置與財務結構不夠了解，等到專案真正執行、需要核銷時，常常會出現 KPI 訂得不切實際、預算科目編列與實際支出對不上、人事分工跟計畫書寫的不一致等狀況，最後反而讓企業自己承擔核銷失敗、扣款甚至補助收回的風險。曜昕的做法不同：從這個專案未來要怎麼被執行的角度出發，先理解企業真實的資源與能力，再回頭設計提案內容，確保計畫書裡承諾的每一項 KPI 與預算配置，都是企業實際做得到、核銷得過的。
-            </div>
+          <div id="faq-ans-13" class="p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800 bg-slate-950/40" style="display: block;">
+            最大的風險不是寫不寫得過，而是過了之後執行不下去。許多代寫寫手只負責把計畫書寫到符合審查格式、順利取得補助，但如果對企業實際的營運狀況、人力配置與財務結構不夠了解，等到專案真正執行、需要核銷時，常常會出現 KPI 訂得不切實際、預算科目編列與實際支出對不上、人事分工跟計畫書寫的不一致等狀況，最後反而讓企業自己承擔核銷失敗、扣款甚至補助收回的風險。曜昕的做法不同：從這個專案未來要怎麼被執行的角度出發，先理解企業真實的資源與能力，再回頭設計提案內容，確保計畫書裡承諾的每一項 KPI 與預算配置，都是企業實際做得到、核銷得過的。
           </div>
         </div>
 
         <!-- Q14 -->
-        <div class="faq-card faq-cat-gov glass-card rounded-2xl border border-slate-800/80 overflow-hidden transition-all hover:border-slate-700">
+        <div class="faq-card faq-cat-gov glass-card rounded-2xl border border-slate-800 overflow-hidden transition-all">
           <button onclick="toggleFaqAccordion(14)" class="w-full p-5 sm:p-6 text-left flex items-start justify-between gap-4 bg-slate-900/60 hover:bg-slate-800/80 transition-colors">
             <h3 class="text-base sm:text-lg font-bold text-amber-400 flex items-start gap-2.5">
               <span class="font-mono shrink-0">Q14.</span>
               <span>政府補助有哪些類型？企業該怎麼選？</span>
             </h3>
-            <i data-lucide="chevron-down" id="faq-icon-14" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" id="faq-icon-14" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300" style="transform: rotate(180deg);"></i>
           </button>
-          <div id="faq-ans-14" class="faq-answer-wrapper">
-            <div class="faq-answer-inner p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/80 bg-slate-950/40">
-              政府補助分為中央型（如 SBIR、SIIR）與地方型（各縣市的 SBIR、SITI）兩大類，企業須依自身發展階段與痛點，選擇對應的資源櫃台，才能提高申請成功率。
-            </div>
+          <div id="faq-ans-14" class="p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800 bg-slate-950/40" style="display: block;">
+            政府補助分為中央型（如 SBIR、SIIR）與地方型（各縣市的 SBIR、SITI）兩大類，企業須依自身發展階段與痛點，選擇對應的資源櫃台，才能提高申請成功率。
           </div>
         </div>
 
         <!-- Q15 -->
-        <div class="faq-card faq-cat-gov glass-card rounded-2xl border border-slate-800/80 overflow-hidden transition-all hover:border-slate-700">
+        <div class="faq-card faq-cat-gov glass-card rounded-2xl border border-slate-800 overflow-hidden transition-all">
           <button onclick="toggleFaqAccordion(15)" class="w-full p-5 sm:p-6 text-left flex items-start justify-between gap-4 bg-slate-900/60 hover:bg-slate-800/80 transition-colors">
             <h3 class="text-base sm:text-lg font-bold text-amber-400 flex items-start gap-2.5">
               <span class="font-mono shrink-0">Q15.</span>
               <span>政府補助企畫書最重要的核心是什麼？</span>
             </h3>
-            <i data-lucide="chevron-down" id="faq-icon-15" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" id="faq-icon-15" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300" style="transform: rotate(180deg);"></i>
           </button>
-          <div id="faq-ans-15" class="faq-answer-wrapper">
-            <div class="faq-answer-inner p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/80 bg-slate-950/40">
-              企畫書不是夢想說明書，而是策略說服書，必須具備明確的解決方案、清楚的時程規劃，以及可量化的 Smart KPI 查核指標。評審審查的核心是評估團隊執行力、方案可行性與營運穩定度。
-            </div>
+          <div id="faq-ans-15" class="p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800 bg-slate-950/40" style="display: block;">
+            企畫書不是夢想說明書，而是策略說服書，必須具備明確的解決方案、清楚的時程規劃，以及可量化的 Smart KPI 查核指標。評審審查的核心是評估團隊執行力、方案可行性與營運穩定度。
           </div>
         </div>
 
         <!-- Q16 -->
-        <div class="faq-card faq-cat-gov glass-card rounded-2xl border border-slate-800/80 overflow-hidden transition-all hover:border-slate-700">
+        <div class="faq-card faq-cat-gov glass-card rounded-2xl border border-slate-800 overflow-hidden transition-all">
           <button onclick="toggleFaqAccordion(16)" class="w-full p-5 sm:p-6 text-left flex items-start justify-between gap-4 bg-slate-900/60 hover:bg-slate-800/80 transition-colors">
             <h3 class="text-base sm:text-lg font-bold text-amber-400 flex items-start gap-2.5">
               <span class="font-mono shrink-0">Q16.</span>
               <span>政府補助的預算編列有什麼規則？</span>
             </h3>
-            <i data-lucide="chevron-down" id="faq-icon-16" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" id="faq-icon-16" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300" style="transform: rotate(180deg);"></i>
           </button>
-          <div id="faq-ans-16" class="faq-answer-wrapper">
-            <div class="faq-answer-inner p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/80 bg-slate-950/40">
-              政府補助款與企業自籌款通常採 1:1 對等比例，人事費與委外費編列須符合比例限制，確保財務科目合理性，避免因預算結構不合規而被扣分或退件。
-            </div>
+          <div id="faq-ans-16" class="p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800 bg-slate-950/40" style="display: block;">
+            政府補助款與企業自籌款通常採 1:1 對等比例，人事費與委外費編列須符合比例限制，確保財務科目合理性，避免因預算結構不合規而被扣分或退件。
           </div>
         </div>
 
         <!-- Q17 -->
-        <div class="faq-card faq-cat-gov glass-card rounded-2xl border border-slate-800/80 overflow-hidden transition-all hover:border-slate-700">
+        <div class="faq-card faq-cat-gov glass-card rounded-2xl border border-slate-800 overflow-hidden transition-all">
           <button onclick="toggleFaqAccordion(17)" class="w-full p-5 sm:p-6 text-left flex items-start justify-between gap-4 bg-slate-900/60 hover:bg-slate-800/80 transition-colors">
             <h3 class="text-base sm:text-lg font-bold text-amber-400 flex items-start gap-2.5">
               <span class="font-mono shrink-0">Q17.</span>
               <span>拿到補助之後核銷會很麻煩嗎？需要注意什麼？</span>
             </h3>
-            <i data-lucide="chevron-down" id="faq-icon-17" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" id="faq-icon-17" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300" style="transform: rotate(180deg);"></i>
           </button>
-          <div id="faq-ans-17" class="faq-answer-wrapper">
-            <div class="faq-answer-inner p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/80 bg-slate-950/40">
-              補助款通常採分階段給付，核銷時需嚴格核對專案人員的勞健保投保紀錄、所得憑證與合規三聯式發票。全流程做好合規準備，能大幅降低後續稽核扣款的風險，這也是陪跑服務會協助把關的環節。
-            </div>
+          <div id="faq-ans-17" class="p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800 bg-slate-950/40" style="display: block;">
+            補助款通常採分階段給付，核銷時需嚴格核對專案人員的勞健保投保紀錄、所得憑證與合規三聯式發票。全流程做好合規準備，能大幅降低後續稽核扣款的風險，這也是陪跑服務會協助把關的環節。
           </div>
         </div>
 
         <!-- Q18 -->
-        <div class="faq-card faq-cat-gov glass-card rounded-2xl border border-slate-800/80 overflow-hidden transition-all hover:border-slate-700">
+        <div class="faq-card faq-cat-gov glass-card rounded-2xl border border-slate-800 overflow-hidden transition-all">
           <button onclick="toggleFaqAccordion(18)" class="w-full p-5 sm:p-6 text-left flex items-start justify-between gap-4 bg-slate-900/60 hover:bg-slate-800/80 transition-colors">
             <h3 class="text-base sm:text-lg font-bold text-amber-400 flex items-start gap-2.5">
               <span class="font-mono shrink-0">Q18.</span>
               <span>曜昕的政府補助申請陪跑服務包含哪些項目？</span>
             </h3>
-            <i data-lucide="chevron-down" id="faq-icon-18" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" id="faq-icon-18" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300" style="transform: rotate(180deg);"></i>
           </button>
-          <div id="faq-ans-18" class="faq-answer-wrapper">
-            <div class="faq-answer-inner p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/80 bg-slate-950/40">
-              從補助方向諮詢、計畫架構梳理、商業模式整理、預算與 KPI 規劃，到計畫書撰寫與經費核銷全程輔導，陪伴企業將想法轉換為符合審查規範的具體計畫。
-            </div>
+          <div id="faq-ans-18" class="p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800 bg-slate-950/40" style="display: block;">
+            從補助方向諮詢、計畫架構梳理、商業模式整理、預算與 KPI 規劃，到計畫書撰寫與經費核銷全程輔導，陪伴企業將想法轉換為符合審查規範的具體計畫。
           </div>
         </div>
 
         <!-- Q19 -->
-        <div class="faq-card faq-cat-contact glass-card rounded-2xl border border-slate-800/80 overflow-hidden transition-all hover:border-slate-700">
+        <div class="faq-card faq-cat-contact glass-card rounded-2xl border border-slate-800 overflow-hidden transition-all">
           <button onclick="toggleFaqAccordion(19)" class="w-full p-5 sm:p-6 text-left flex items-start justify-between gap-4 bg-slate-900/60 hover:bg-slate-800/80 transition-colors">
             <h3 class="text-base sm:text-lg font-bold text-amber-400 flex items-start gap-2.5">
               <span class="font-mono shrink-0">Q19.</span>
               <span>跟曜昕合作大概需要多久時間？</span>
             </h3>
-            <i data-lucide="chevron-down" id="faq-icon-19" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" id="faq-icon-19" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300" style="transform: rotate(180deg);"></i>
           </button>
-          <div id="faq-ans-19" class="faq-answer-wrapper">
-            <div class="faq-answer-inner p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/80 bg-slate-950/40">
-              依服務類型與企業現況而異，市場開發與產品設計著重快速驗證，通常會先設定一個短週期的驗證目標；政府補助申請則依申請期程規劃陪跑時間。
-            </div>
+          <div id="faq-ans-19" class="p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800 bg-slate-950/40" style="display: block;">
+            依服務類型與企業現況而異，市場開發與產品設計著重快速驗證，通常會先設定一個短週期的驗證目標；政府補助申請則依申請期程規劃陪跑時間。
           </div>
         </div>
 
         <!-- Q20 -->
-        <div class="faq-card faq-cat-contact glass-card rounded-2xl border border-slate-800/80 overflow-hidden transition-all hover:border-slate-700">
+        <div class="faq-card faq-cat-contact glass-card rounded-2xl border border-slate-800 overflow-hidden transition-all">
           <button onclick="toggleFaqAccordion(20)" class="w-full p-5 sm:p-6 text-left flex items-start justify-between gap-4 bg-slate-900/60 hover:bg-slate-800/80 transition-colors">
             <h3 class="text-base sm:text-lg font-bold text-amber-400 flex items-start gap-2.5">
               <span class="font-mono shrink-0">Q20.</span>
               <span>如何開始跟曜昕接洽？</span>
             </h3>
-            <i data-lucide="chevron-down" id="faq-icon-20" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" id="faq-icon-20" class="w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300" style="transform: rotate(180deg);"></i>
           </button>
-          <div id="faq-ans-20" class="faq-answer-wrapper">
-            <div class="faq-answer-inner p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/80 bg-slate-950/40">
-              可透過官網的免費諮詢單留下企業資訊與需求，曜昕將主動與您聯繫，初步了解狀況並討論可能的合作方向。
-            </div>
+          <div id="faq-ans-20" class="p-5 sm:p-6 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800 bg-slate-950/40" style="display: block;">
+            可透過官網的免費諮詢單留下企業資訊與需求，曜昕將主動與您聯繫，初步了解狀況並討論可能的合作方向。
           </div>
         </div>
 
@@ -1294,7 +1325,7 @@
             一個產品、一項能力、一群客戶，甚至是一個還沒開始的想法，都有可能成為企業下一步的起點。
           </p>
 
-          <div class="p-6 sm:p-7 rounded-2xl glass-card border-slate-800 bg-slate-900/90 space-y-4 shadow-xl">
+          <div class="p-6 sm:p-7 rounded-2xl glass-card border-slate-800 bg-slate-900 space-y-4">
             <div class="font-bold text-white text-base">如果你正在思考：</div>
             <div class="flex flex-wrap gap-2 text-xs font-semibold text-amber-300">
               <span class="px-3.5 py-1.5 rounded-lg bg-amber-500/10 border border-amber-500/20">新的市場</span>
@@ -1312,7 +1343,7 @@
         </div>
 
         <div class="lg:col-span-7">
-          <div class="glass-card rounded-2xl p-6 sm:p-10 border-slate-800 relative shadow-2xl">
+          <div class="glass-card rounded-2xl p-6 sm:p-10 border-slate-800 relative">
             <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">預約免費諮詢單</h3>
             <p class="text-slate-300 text-xs sm:text-sm mb-6 sm:mb-8 leading-relaxed">請留下您的聯繫資訊與想法，曜昕顧問團隊將主動與您聯繫。</p>
 
@@ -1320,31 +1351,30 @@
               <div class="grid sm:grid-cols-2 gap-4 sm:gap-5">
                 <div>
                   <label for="company_name" class="block text-xs font-semibold text-slate-200 mb-2">企業名稱 *</label>
-                  <input type="text" id="company_name" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3.5 text-base sm:text-sm text-white placeholder-slate-500 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition-colors shadow-inner" placeholder="例如：曜昕企業管理顧問有限公司">
+                  <input type="text" id="company_name" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3.5 text-base sm:text-sm text-white placeholder-slate-500 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition-colors" placeholder="例如：曜昕企業管理顧問有限公司">
                 </div>
 
                 <div>
                   <label for="contact_name" class="block text-xs font-semibold text-slate-200 mb-2">聯絡人姓名與職稱 *</label>
-                  <input type="text" id="contact_name" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3.5 text-base sm:text-sm text-white placeholder-slate-500 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition-colors shadow-inner" placeholder="王經理 / 特別助理">
+                  <input type="text" id="contact_name" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3.5 text-base sm:text-sm text-white placeholder-slate-500 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition-colors" placeholder="王經理 / 特別助理">
                 </div>
               </div>
 
               <div class="grid sm:grid-cols-2 gap-4 sm:gap-5">
                 <div>
                   <label for="contact_phone" class="block text-xs font-semibold text-slate-200 mb-2">聯絡電話 *</label>
-                  <input type="tel" id="contact_phone" oninput="validatePhoneInput()" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3.5 text-base sm:text-sm text-white placeholder-slate-500 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition-colors shadow-inner" placeholder="0912-345-678 或 02-2345-6789">
-                  <p id="phone-hint-msg" class="hidden text-xs text-red-400 mt-1.5 font-medium"></p>
+                  <input type="tel" id="contact_phone" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3.5 text-base sm:text-sm text-white placeholder-slate-500 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition-colors" placeholder="0912-345-678 或 02-2345-6789">
                 </div>
 
                 <div>
                   <label for="contact_email" class="block text-xs font-semibold text-slate-200 mb-2">Email 信箱 *</label>
-                  <input type="email" id="contact_email" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3.5 text-base sm:text-sm text-white placeholder-slate-500 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition-colors shadow-inner" placeholder="service@yaoxin.com.tw">
+                  <input type="email" id="contact_email" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3.5 text-base sm:text-sm text-white placeholder-slate-500 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition-colors" placeholder="service@yaoxin.com.tw">
                 </div>
               </div>
 
               <div>
                 <label for="service_type" class="block text-xs font-semibold text-slate-200 mb-2">希望了解的服務項目 *</label>
-                <select id="service_type" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3.5 text-base sm:text-sm text-white focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition-colors shadow-inner">
+                <select id="service_type" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3.5 text-base sm:text-sm text-white focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition-colors">
                   <option value="" disabled selected>請選擇主要的諮詢服務</option>
                   <option value="市場開發">市場開發 (政府標案/生態圈/異業合作)</option>
                   <option value="產品設計">產品設計 (定位/第二產品曲線/MVP測試)</option>
@@ -1355,15 +1385,15 @@
 
               <div>
                 <label for="project_desc" class="block text-xs font-semibold text-slate-200 mb-2">說明</label>
-                <textarea id="project_desc" rows="4" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 text-base sm:text-sm text-white placeholder-slate-500 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition-colors shadow-inner" placeholder="請簡述貴公司的主要產品/能力，以及目前希望解決的課題..."></textarea>
+                <textarea id="project_desc" rows="4" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 text-base sm:text-sm text-white placeholder-slate-500 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition-colors" placeholder="請簡述貴公司的主要產品/能力，以及目前希望解決的課題..."></textarea>
               </div>
 
-              <button type="submit" id="form-submit-btn" class="w-full bg-amber-500 hover:bg-amber-400 active:scale-[0.98] text-slate-950 font-bold py-4 rounded-xl transition-all text-center flex items-center justify-center gap-2 text-base min-h-[48px] shadow-lg shadow-amber-500/20">
+              <button type="submit" id="form-submit-btn" class="w-full bg-amber-500 hover:bg-amber-600 active:scale-[0.98] text-slate-950 font-bold py-4 rounded-xl transition-all text-center flex items-center justify-center gap-2 text-base min-h-[48px]">
                 <i data-lucide="send" class="w-5 h-5"></i>
                 <span>送出免費諮詢申請</span>
               </button>
 
-              <div id="form-success-msg" class="hidden p-4 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-center text-sm font-semibold shadow-inner">
+              <div id="form-success-msg" class="hidden p-4 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-center text-sm font-semibold">
                 ✓ 訊息已成功送出！曜昕顧問團隊將儘速與您聯繫。
               </div>
             </form>
@@ -1373,6 +1403,14 @@
       </div>
     </div>
   </section>
+
+  <!-- Custom Notification Toast Container -->
+  <div id="toast-container" class="fixed bottom-20 right-6 sm:right-20 z-50 flex flex-col gap-2 max-w-sm w-full px-4 pointer-events-none"></div>
+
+  <!-- Floating Back to Top / Home Button -->
+  <button id="back-to-top-btn" onclick="scrollToTop()" aria-label="回到首頁與頁頂" class="fixed bottom-6 right-6 z-40 p-3.5 rounded-full bg-slate-900/90 text-amber-400 border border-amber-500/40 shadow-2xl backdrop-blur-md hover:bg-amber-500 hover:text-slate-950 active:scale-90 opacity-0 pointer-events-none transition-all duration-300 flex items-center justify-center group" title="回到首頁">
+    <i data-lucide="arrow-up" class="w-5 h-5 group-hover:-translate-y-1 transition-transform"></i>
+  </button>
 
   <!-- Footer -->
   <footer class="py-12 bg-slate-950 border-t border-slate-900 text-slate-400 text-xs">
@@ -1414,11 +1452,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- Floating Back-to-Top Button -->
-  <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="回到頂部" class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-slate-900/90 text-amber-400 border border-amber-500/40 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-amber-500 hover:text-slate-950 shadow-2xl">
-    <i data-lucide="arrow-up" class="w-5 h-5"></i>
-  </button>
 
   <script>
     let currentApiEndpoint = "https://script.google.com/macros/s/AKfycbRG1gJ2TL5zOF9SRhvwV6jHSTFavW3KAVRrnr2_vlsBbT7oaze699mq2pcZricC-2lEQ/exec";
@@ -1471,16 +1504,61 @@
     ];
 
     let currentPainPointIndex = 0;
-    let currentFaqCategory = 'all';
 
     document.addEventListener('DOMContentLoaded', () => {
       if (window.lucide) lucide.createIcons();
       setupMobileMenu();
-      setupScrollSpyAndBackToTop();
 
       const yearEl = document.getElementById('current-year');
       if (yearEl) yearEl.textContent = new Date().getFullYear();
     });
+
+    // 平滑滾動回到首頁/頁頂
+    window.scrollToTop = function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    };
+
+    // 監聽滾動事件控制「回到首頁/頁頂」懸浮按鈕顯示與隱藏
+    window.addEventListener('scroll', () => {
+      const topBtn = document.getElementById('back-to-top-btn');
+      if (!topBtn) return;
+
+      if (window.scrollY > 350) {
+        topBtn.classList.remove('opacity-0', 'pointer-events-none');
+        topBtn.classList.add('opacity-100', 'pointer-events-auto');
+      } else {
+        topBtn.classList.remove('opacity-100', 'pointer-events-auto');
+        topBtn.classList.add('opacity-0', 'pointer-events-none');
+      }
+    });
+
+    function showToast(message, type = 'warning') {
+      const container = document.getElementById('toast-container');
+      if (!container) return;
+
+      const toast = document.createElement('div');
+      toast.className = `toast-anim pointer-events-auto p-4 rounded-xl border shadow-xl flex items-center justify-between gap-3 text-xs sm:text-sm font-semibold ${
+        type === 'warning' ? 'bg-amber-950 border-amber-500/50 text-amber-200' : 'bg-emerald-950 border-emerald-500/50 text-emerald-200'
+      }`;
+      
+      toast.innerHTML = `
+        <div class="flex items-center gap-2">
+          <i data-lucide="${type === 'warning' ? 'alert-circle' : 'check-circle-2'}" class="w-5 h-5 shrink-0"></i>
+          <span>${message}</span>
+        </div>
+        <button onclick="this.parentElement.remove()" class="text-slate-400 hover:text-white p-1">✕</button>
+      `;
+
+      container.appendChild(toast);
+      if (window.lucide) lucide.createIcons();
+
+      setTimeout(() => {
+        if (toast.parentElement) toast.remove();
+      }, 4000);
+    }
 
     function setupMobileMenu() {
       const btn = document.getElementById('mobile-menu-btn');
@@ -1494,39 +1572,6 @@
       document.querySelectorAll('.mobile-nav-link').forEach(link => {
         link.addEventListener('click', () => {
           menu.classList.add('hidden');
-        });
-      });
-    }
-
-    // ScrollSpy & Back-to-Top Button
-    function setupScrollSpyAndBackToTop() {
-      const backToTopBtn = document.getElementById('back-to-top');
-      const sections = document.querySelectorAll('section[id]');
-      const navLinks = document.querySelectorAll('#desktop-nav .nav-link');
-
-      window.addEventListener('scroll', () => {
-        // Back to top button toggle
-        if (window.scrollY > 400) {
-          backToTopBtn?.classList.remove('opacity-0', 'pointer-events-none');
-        } else {
-          backToTopBtn?.classList.add('opacity-0', 'pointer-events-none');
-        }
-
-        // Section ScrollSpy Active Link Tracking
-        let currentSectionId = '';
-        sections.forEach(section => {
-          const sectionTop = section.offsetTop - 120;
-          const sectionHeight = section.offsetHeight;
-          if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-            currentSectionId = section.getAttribute('id');
-          }
-        });
-
-        navLinks.forEach(link => {
-          link.classList.remove('nav-active');
-          if (link.getAttribute('href') === `#${currentSectionId}`) {
-            link.classList.add('nav-active');
-          }
         });
       });
     }
@@ -1545,7 +1590,7 @@
         const icon = btn.querySelector('i, svg');
 
         if (i === index) {
-          btn.className = "pain-point-btn w-full text-left p-4 sm:p-5 rounded-xl glass-card transition-all border border-amber-500/60 bg-slate-800 text-white flex items-center justify-between group active:scale-[0.99]";
+          btn.className = "pain-point-btn w-full text-left p-4 sm:p-5 rounded-xl glass-card transition-all border border-amber-500/50 bg-slate-800 text-white flex items-center justify-between group active:scale-[0.99]";
           if (badge) {
             badge.className = "w-8 h-8 rounded-lg bg-amber-500 text-slate-950 font-bold flex items-center justify-center text-sm shrink-0";
           }
@@ -1589,84 +1634,22 @@
 
     // FAQ 手風琴展開/收合
     window.toggleFaqAccordion = function(num) {
-      const ansWrapper = document.getElementById(`faq-ans-${num}`);
+      const ansEl = document.getElementById(`faq-ans-${num}`);
       const iconEl = document.getElementById(`faq-icon-${num}`);
-      if (!ansWrapper) return;
+      if (!ansEl) return;
 
-      const isOpen = ansWrapper.classList.contains('open');
-      if (isOpen) {
-        ansWrapper.classList.remove('open');
-        if (iconEl) iconEl.style.transform = 'rotate(0deg)';
-      } else {
-        ansWrapper.classList.add('open');
+      const isHidden = window.getComputedStyle(ansEl).display === 'none';
+      if (isHidden) {
+        ansEl.style.display = 'block';
         if (iconEl) iconEl.style.transform = 'rotate(180deg)';
-      }
-    };
-
-    // FAQ 全部展開 / 全部折疊
-    window.toggleAllFaq = function(shouldExpand) {
-      for (let i = 1; i <= 20; i++) {
-        const wrapper = document.getElementById(`faq-ans-${i}`);
-        const icon = document.getElementById(`faq-icon-${i}`);
-        if (!wrapper) continue;
-
-        if (shouldExpand) {
-          wrapper.classList.add('open');
-          if (icon) icon.style.transform = 'rotate(180deg)';
-        } else {
-          wrapper.classList.remove('open');
-          if (icon) icon.style.transform = 'rotate(0deg)';
-        }
-      }
-    };
-
-    // FAQ 即時關鍵字搜尋與過濾
-    window.handleFaqSearch = function() {
-      const searchInput = document.getElementById('faq-search-input');
-      const clearBtn = document.getElementById('faq-search-clear');
-      const indicator = document.getElementById('faq-count-indicator');
-      const query = (searchInput?.value || '').trim().toLowerCase();
-
-      if (query.length > 0) {
-        clearBtn?.classList.remove('hidden');
       } else {
-        clearBtn?.classList.add('hidden');
+        ansEl.style.display = 'none';
+        if (iconEl) iconEl.style.transform = 'rotate(0deg)';
       }
-
-      let visibleCount = 0;
-      const cards = document.querySelectorAll('.faq-card');
-
-      cards.forEach(card => {
-        const text = card.textContent.toLowerCase();
-        const matchesQuery = query === '' || text.includes(query);
-        const matchesCat = currentFaqCategory === 'all' || card.classList.contains(`faq-cat-${currentFaqCategory}`);
-
-        if (matchesQuery && matchesCat) {
-          card.style.display = 'block';
-          visibleCount++;
-        } else {
-          card.style.display = 'none';
-        }
-      });
-
-      if (indicator) {
-        if (query.length > 0) {
-          indicator.textContent = `找到 ${visibleCount} 筆相關解答`;
-        } else {
-          indicator.textContent = `已顯示 ${visibleCount} 題`;
-        }
-      }
-    };
-
-    window.clearFaqSearch = function() {
-      const searchInput = document.getElementById('faq-search-input');
-      if (searchInput) searchInput.value = '';
-      handleFaqSearch();
     };
 
     // FAQ 分類過濾
     window.filterFaqCategory = function(cat) {
-      currentFaqCategory = cat;
       const buttons = document.querySelectorAll('.faq-tab-btn');
       buttons.forEach(btn => {
         btn.className = "faq-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800";
@@ -1677,7 +1660,14 @@
         activeBtn.className = "faq-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-amber-500 text-slate-950 shadow-md";
       }
 
-      handleFaqSearch();
+      const cards = document.querySelectorAll('.faq-card');
+      cards.forEach(card => {
+        if (cat === 'all' || card.classList.contains(`faq-cat-${cat}`)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
     };
 
     function selectServiceAndScroll(serviceName) {
@@ -1687,29 +1677,6 @@
       const formSection = document.getElementById('section-08');
       if (formSection) formSection.scrollIntoView({ behavior: 'smooth' });
     }
-
-    // 即時電話號碼驗證提示
-    window.validatePhoneInput = function() {
-      const phoneInput = document.getElementById('contact_phone');
-      const hintMsg = document.getElementById('phone-hint-msg');
-      if (!phoneInput || !hintMsg) return;
-
-      const raw = phoneInput.value.trim();
-      if (raw === '') {
-        hintMsg.classList.add('hidden');
-        return;
-      }
-
-      const cleaned = raw.replace(/[\s\-\(\)]/g, '');
-      const taiwanPhoneRegex = /^(09\d{8}|0\d{8,9})$/;
-
-      if (!taiwanPhoneRegex.test(cleaned)) {
-        hintMsg.textContent = '請填寫格式正確的台灣電話（例：0912-345-678 或 02-2345-6789）';
-        hintMsg.classList.remove('hidden');
-      } else {
-        hintMsg.classList.add('hidden');
-      }
-    };
 
     async function handleFormSubmit(e) {
       e.preventDefault();
@@ -1724,7 +1691,7 @@
       const taiwanPhoneRegex = /^(09\d{8}|0\d{8,9})$/;
 
       if (!taiwanPhoneRegex.test(cleanedPhone)) {
-        validatePhoneInput();
+        showToast('請輸入有效的台灣聯絡電話（例：0912-345-678 或 02-2345-6789）', 'warning');
         if (phoneInput) phoneInput.focus();
         return;
       }
@@ -1752,6 +1719,7 @@
 
         btn.classList.add('hidden');
         if (successMsg) successMsg.classList.remove('hidden');
+        showToast('諮詢表單已成功送出！', 'success');
       } catch (err) {
         console.error("發送失敗:", err);
         btn.classList.add('hidden');
