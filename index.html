@@ -1228,15 +1228,19 @@
     <section id="about" class="py-16 sm:py-20 bg-[#234638] text-[#F5F1E8] border-b border-[#B69A5A]/30 scroll-mt-20">
       <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-          <!-- 顧問形象照與基本資訊 (中英文版共用同一張 evaweb.jpg) -->
+          <!-- 顧問形象照與基本資訊 (原生 2:3 比例避免裁切模糊，並加上 ?v=20261016 強制破除舊圖快取) -->
           <div class="lg:col-span-4 space-y-5">
-            <div class="w-40 sm:w-48 aspect-[3/4] rounded-[6px] overflow-hidden border border-[#B69A5A] bg-[#18382D] relative">
+            <div class="w-48 sm:w-56 aspect-[2/3] rounded-[6px] overflow-hidden border border-[#B69A5A] bg-[#18382D] relative">
               <img
                 id="consultant-photo"
-                src="evaweb.jpg"
+                src="evaweb.jpg?v=20261016"
                 alt="馬鈺婷 Eva Ma - 曜昕企業管理顧問 執行顧問"
-                onerror="if(this.src.indexOf('https://yaobiz.net/evaweb.jpg') === -1){ this.src = 'https://yaobiz.net/evaweb.jpg'; }"
-                class="w-full h-full object-cover object-top block"
+                width="560"
+                height="840"
+                loading="eager"
+                decoding="async"
+                onerror="if(!this.dataset. step){this.dataset.step='1';this.src='evaweb_2.jpg?v=20261016';}else if(this.dataset.step==='1'){this.dataset.step='2';this.src='https://yaobiz.net/evaweb.jpg?v=20261016';}"
+                class="w-full h-full object-cover object-center block"
               />
             </div>
             <div class="space-y-1.5">
@@ -1260,7 +1264,7 @@
                 <span class="lang-en hidden">• System Analysis / Product Planning / Total Solution BD</span>
               </div>
               <div>
-                <span class="lang-zh">• 前新事業群管理及金控處長職務</span>
+                <span class="lang-zh">• 新事業群發展及金控處長職務</span>
                 <span class="lang-en hidden">• Former New Business Unit Head & Financial Holding VP</span>
               </div>
               <div>• Email：<a href="mailto:eva@yaobiz.net" class="text-[#B69A5A] underline">eva@yaobiz.net</a></div>
